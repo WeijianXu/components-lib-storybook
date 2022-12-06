@@ -1,0 +1,19 @@
+// @import '../../theme/variants';
+$pre: '#{$uiPre}tpl-empty';
+
+.#{$pre} {
+  height: 100%;
+  @include bgImg(unset, cover);
+
+  .#{$pre}-page {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .#{$pre}-alert {
+    margin: $gap-md;
+  }
+  .#{$pre}-footer {
+    background: transparent;
+  }
+}

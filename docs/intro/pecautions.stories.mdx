@@ -1,0 +1,67 @@
+import {
+  Meta,
+  /* Story, Canvas, argTypes, Props, ArgsTable */ Description,
+} from '@storybook/addon-docs';
+
+<Meta title={'介绍/注意事项'} parameters={{ previewTabs: { canvas: { hidden: true } } }} />
+
+# 注意事项
+
+## 1 注解符
+
+### @Prop
+
+目前使用的插件 vue-property-decorator 的 `@Prop` 存在一个[Boolean 处理问题](https://github.com/kaorun343/vue-property-decorator/issues/190)，使得下面语法中 `search` 属性不能生效，它会被编译成 `search: ''`，而不是预期的 `search: true`：
+
+```html
+<template>
+  <Input
+    v-model.trim="content"
+    @on-search="getData"
+    search
+    enter-button="搜索"
+    placeholder="请输入相关专题关键字进行搜索"
+  /></Input>
+</template>
+```
+
+为了避免设个问题，组件设置 `search` 属性时，增加 `type: Boolean` 的设置，即：
+
+```ts
+import { Vue, Component, Prop, Watch, Mixins } from 'vue-property-decorator';
+
+@Component()
+export default class Input extends Vue {
+  /**
+   * 是否显示为搜索型输入框
+   */
+  @Prop({ default: false, type: Boolean }) public search!: boolean;
+}
+```
+
+但是，若属性为组合类型，则需要将支持的类型都列举出来 `type: [Boolean, Number, String]`，如：
+
+```ts
+export default class Paragraph extends BaseUI {
+  /**
+   * 是否加粗: boolean | number | string
+   */
+  @Prop({ default: false, type: [Boolean, Number, String] }) private strong!:
+    | boolean
+    | number
+    | string;
+
+  public get contentStyle(): object {
+    // ...
+    if (this.strong) {
+      if (typeof this.strong === 'boolean' || this.strong === 'true') {
+        styles['font-weight'] = 'bold';
+      } else if (!isNaN(Number(this.strong))) {
+        styles['font-weight'] = Number(this.strong);
+      }
+    }
+    // ...
+  }
+  // ...
+}
+```

@@ -1,0 +1,9 @@
+import {
+  Meta,
+  /* Story, Canvas, argTypes, Props, ArgsTable */ Description,
+} from '@storybook/addon-docs';
+import CHANGELOG from '!raw-loader!../../CHANGELOG.md';
+
+<Meta title={'介绍/变更日志'} parameters={{ previewTabs: { canvas: { hidden: true } } }} />
+
+<Description markdown={CHANGELOG} />

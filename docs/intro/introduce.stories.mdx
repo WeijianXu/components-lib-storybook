@@ -1,0 +1,95 @@
+import {
+  Meta,
+  /* Story, Canvas, argTypes, Props, ArgsTable */ Description,
+} from '@storybook/addon-docs';
+
+<Meta title={'介绍/使用方法'} parameters={{ previewTabs: { canvas: { hidden: true } } }} />
+
+# 使用方法
+
+## 1 安装
+
+```bash
+
+```
+
+## 2 按需加载
+
+### 2.1 使用者说明
+
+本组件库使用工具 babel-plugin-import 来实现按需加载，使用前请确定该工具已安装。
+然后在 babel 的配置文件中，如 `babel.config.js` 中，增加下面配置
+
+```js
+module.exports = {
+  // ...
+  plugins: [
+    [
+      'import',
+      {
+        libraryName: 'components-library-storybook',
+        libraryDirectory: 'dist/es',
+      },
+    ],
+    // ...
+  ],
+};
+```
+
+注意，如果还使用 babel-plugin-import 按需加载其他 UI 库，如 view-design，则需要增加第三个参数加以区分：
+
+```js
+module.exports = {
+  // ...
+  plugins: [
+    [
+      'import',
+      {
+        libraryName: 'view-design',
+        libraryDirectory: 'src/components',
+      },
+      'view-design', // 必须设置第三个参数，且不能重名
+    ],
+    [
+      'import',
+      {
+        libraryName: 'components-library-storybook',
+        libraryDirectory: 'dist/es',
+      },
+      'components-library-storybook', // 必须设置第三个参数，且不能重名
+    ],
+    // ...
+  ],
+};
+```
+
+按需加载前：
+
+按需加载后：
+
+### 2.2 开发者说明
+
+组件库中需要引用 iview 组件时，请直接找到该组件，如 `import IvIcon from 'view-design/src/components/icon';`；
+在 `components/index.ts`、`layout/index.ts` 中导出组件目前只支持下列两种方式，避免组件分片打包失效：
+
+- `export { default as Button } from './base/button/index.vue';`
+
+- `export { Menu, MenuItem, Submenu } from './nav/menu/index.ts';`
+
+## 3 兼容
+
+### 3.1 兼容国产浏览器
+
+部分国产浏览器存在兼容性问题，需要在 `vue.config.js` 中如下配置，转化不支持的语法规则，避免报错：
+
+```js
+module.exports = {
+  // ...
+  // 需要开启语法转化
+  transpileDependencies: [
+    // ...
+    'components-library-storybook',
+  ],
+  // ...
+};
+```

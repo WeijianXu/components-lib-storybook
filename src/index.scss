@@ -1,0 +1,10 @@
+/**
+ * 剪裁后的数字字体，包括 DINPro-regular
+ */
+@import './assets/fonts/DINPro/DINPro-number-mini.css';
+
+// 先引入变量
+@import './theme/variants.scss';
+
+// 再引入组件样式
+@import './comps.scss';

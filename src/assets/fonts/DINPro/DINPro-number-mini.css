@@ -1,0 +1,5 @@
+/* 引入 DINPro 字体。本字体集合，只包含数字显示所需要的字符： 0123456789.,  */
+@import './DINPro-Bold/DINPro-Bold.css';
+@import './DINPro-Light/DINPro-Light.css';
+@import './DINPro-Medium/DINPro-Medium.css';
+@import './DINPro-Regular/DINPro-Regular.css';

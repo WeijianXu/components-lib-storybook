@@ -1,0 +1,61 @@
+$pre: '#{$uiPre}link';
+
+.#{$pre} {
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border: none;
+  padding: 0 8px;
+  user-select: none;
+  color: $info-color;
+  font: 400 $font-size-base $button-text-font;
+  line-height: $line-height-base;
+  white-space: nowrap;
+  &:hover {
+    background-color: $bg-color-table-thead;
+    color: $primary-color-hover;
+  }
+  &:active {
+    color: $primary-color-active;
+  }
+  &:disabled {
+    color: #cccccc;
+    pointer-events: none;
+  }
+  &-icon-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    .#{$uiPre}iconfont {
+      margin-right: 2px;
+    }
+  }
+}
+.#{$pre}-disabled-mask {
+  cursor: not-allowed;
+}
+.#{$pre}-wrap {
+  display: inline-block;
+
+  &.ellipsis {
+    max-width: 100%;
+
+    .#{$pre} {
+      max-width: 100%;
+    }
+    .#{$pre}-icon-wrapper {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+  }
+  &.underline {
+    .#{$pre}:hover {
+      background-color: transparent;
+    }
+    .#{$pre}-icon-wrapper:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+}

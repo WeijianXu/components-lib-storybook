@@ -1,0 +1,196 @@
+/** 
+ * 基础样式全局文件，兼容旧框架
+ * **保持和 custom-view.less 中变量名和设置值一致**
+ * 不满足设计要求的，可自行确定变量名
+ **/
+@import './mixins.scss';
+
+//  组件前缀
+$uiPre: 'sz-';
+
+// 栅格间距大小
+$gap-lg: 24px;
+$gap-md: 20px; // 默认使用 20px
+$gap-sm: 16px;
+$gap-xs: 12px;
+$gap-xxs: 8px;
+$gap-mini: 4px;
+
+// 间距设置，8点网格系统
+$padding-xxs: 4px;
+$padding-xs: 8px;
+$padding-sm: 12px;
+$padding-md: 16px;
+$padding-lg: 20px;
+$padding-xl: 24px;
+$padding-xxl: 32px;
+$padding-huge: 40px; // huge, 巨大；安全距离，用于页脚与内容区的间距
+
+/* 色彩规范 */
+// 基础色系
+$white: #fff;
+$black: #000;
+
+// 主色，浅色系列，主要用于某些组件的背景色
+$primary-b1: #edf4ff;
+$primary-b2: #99cbf9;
+$primary-b3: #59aaf5;
+// 主色，深色系列，主要用于某些组件 active 状态，或局部的背景色
+$primary-b5: #0064c0;
+$primary-b6: #002564;
+
+// 主色，蓝色系列
+$primary-color: #007df1; // $primary-b4
+$primary-color-hover: #2690f3;
+$primary-color-active: #0064c0; // $primary-b5;
+$primary-active-bg: #f2f8fe; // 用于下拉框、菜单等选中项的背景色
+
+// 背景色系列
+$bg-color: #f7f8fa; // 页面背景色
+$bg-color-table-thead: #f2f3f5; // 表格表头背景色
+$bg-color-table-tfoot: #eef7ff; // 表格底部表尾统计行背景色
+$bg-color-tag-default: #f2f3f5; // 表格背景色
+
+// 边框色系列
+$border-color-base: #eeeeee; // outside 边框、线色
+$border-color-split: #dddddd; // inside 分割线：边框、线色，或是灰色背景下的边框
+
+// 边框粗细
+$border-width-base: 1px; // 常用
+$border-width-md: 2px; // tab、menu 等
+$border-width-lg: 4px; // 垂直排列的menu、加粗分割的边框等
+
+// 文本颜色系列
+$title-color: #000000; // 标题颜色
+$text-color: #333333; // 文字色，指主文字1
+$text-color-second: #666666; // 文字色，指主文字2
+$text-color-third: #999999; // 文字色，指辅助、说明文字
+$text-color-disabled: #cccccc; // 文字色，指 disable、提示文字等
+
+$text-color-inBlack: rgba($white, 40%);
+
+/* 功能色系：次按钮色 */
+$secondary-color: #333333; // $text-color;
+$secondary-color-border: #eeeeee; // $border-color-base;
+$secondary-color-bg: #fff; // $white;
+
+$secondary-color-hover: #f4f5f5; // 次按钮等 Hover 颜色
+$secondary-color-active: #eaeaea; // 次按钮等 Active 颜色
+
+/* 功能色系：成功色 */
+$success-color: #15be50; // 成功消息中的文本颜色
+$success-color-border: #6dd993; // 成功状态消息中的边框颜色
+$success-color-bg: #f0faf2; // 成功消息中的背景颜色
+
+$success-color-hover: #37c76a; // 按钮等 Hover 颜色
+$success-color-active: #11a144; // 按钮等 Active 颜色
+
+/* 功能色系：错误、异常色 */
+$danger-color: #d40000;
+$danger-color-border: #fc5c5c;
+$danger-color-bg: #ffebeb;
+
+$danger-color-hover: #da2626;
+$danger-color-active: #b40000;
+
+/* 功能色系：警告色 */
+$warn-color: #ff6b00;
+$warn-color-border: #f1924e;
+$warn-color-bg: #fff5ed;
+
+$warn-color-hover: #ff8126;
+$warn-color-active: #d95b00;
+
+/* 功能色系：次按钮色 */
+$info-color: #007df1; // $primary-color;
+// $info-color-border: $border-color-base; // TODO 待定，尚没有场景使用到
+$info-color-bg: #e5f2fd;
+
+$info-color-hover: #d7edff; // 次按钮等 Hover 颜色
+$info-color-active: #c2e3ff; // 次按钮等 Active 颜色
+
+/* 功能色系：禁止按钮色 */
+$disabled-color: #cccccc; // $text-color-disabled;
+$disabled-color-border: #eeeeee; // $border-color-base; // 有边框的设置为该颜色
+$disabled-color-bg: #f9f9f9;
+
+/* 字体大小 */
+$font-size-sm: 12px;
+$font-size-base: 14px; // 基础字体，常用文字字体大小
+$font-size-normal: 16px;
+$font-size-md: 18px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+$font-size-xxl: 28px;
+$font-size-huge: 32px; // huge，Banner上的大字体主文案
+$font-size-xh: 36px; // 超大字体，部分统计数字使用
+$font-size-xxh: 40px; // 超大字体，部分统计数字使用
+
+/* 行高 */
+$line-height-step: 8px;
+$line-height-multi: 1.5; // 基础行高设置，当前字体的 1.5倍
+
+$line-height-sm: $font-size-sm * $line-height-multi; // 18px
+
+$line-height-base: $font-size-base + $line-height-step; // 22px
+$line-height-normal: $font-size-normal + $line-height-step; //  24px
+$line-height-md: $font-size-md + $line-height-step; // 26px
+$line-height-lg: $font-size-lg + $line-height-step; // 28px
+$line-height-xl: $font-size-xl + $line-height-step; // 32px
+$line-height-xxl: $font-size-xxl + $line-height-step; // 36px
+$line-height-huge: $font-size-huge + $line-height-step; // 40px
+$line-height-xh: $font-size-xh + $line-height-step; // 44px
+$line-height-xxh: $font-size-xxh + $line-height-step; // 48px
+
+/* 圆角 */
+$border-radius-small: 0;
+$border-radius-base: 2px;
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
+
+/* 弹出框等 z-index 值，保证层级顺序正确 */
+$zindex-spin: 8;
+$zindex-affix: 10;
+$zindex-back-top: 10;
+$zindex-tpl-page: 90;
+$zindex-tpl-sider: 100;
+$zindex-select: 900;
+$zindex-modal: 1000;
+$zindex-drawer: 1000;
+$zindex-message: 1010;
+$zindex-notification: 1010;
+$zindex-tooltip: 1060;
+$zindex-transfer: 1060;
+$zindex-loading-bar: 2000;
+$zindex-spin-fullscreen: 2010;
+
+/* 按钮 */
+$button-switch-close: $text-color-disabled;
+$switch-on-disabled: #99cbf9;
+$switch-off-disabled: #f6f6f6;
+$button-text-font: PingFangSC-Regular, PingFang SC;
+// Animation
+$animation-time: 0.3s;
+$animation-time-quick: 0.15s;
+$transition-time: 0.2s;
+$ease-in-out: ease-in-out;
+
+// box-shaow
+$box-shadow-color: rgba($primary-b6, 0.1);
+$page-box-shadow-color: rgba(#0067b6, 0.2);
+$shadow-y: 8px;
+
+// Menu
+$menu-horizontal-height: 64px;
+$menu-light-box-shadow: 0px 0px $shadow-y 0px $box-shadow-color;
+
+// tpl basic
+$tpl-side-width: 240px; // 240px;
+// tpl-back
+$tpl-back-header-background: #1565a7;
+$tpl-back-header-hover: #10416a;
+$tpl-back-header-height: 64px; // 64px;
+$tpl-back-body-background: #f0f2f5;
+// tpl-portal
+$tpl-portal-wrap-content-width: 1200px;
+$tpl-portal-wrap-width: $tpl-portal-wrap-content-width + $padding-lg;

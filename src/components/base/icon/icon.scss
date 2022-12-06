@@ -1,0 +1,11 @@
+/**
+ * 引入 iconfont 图标库
+ * 【注意】：图标库变化后，需要更新下面链接
+ *       若未更新，项目中可使用最新的链接地址以覆盖该文件中的配置
+ *       下面链接需要带上 http 头，不然 rollup-plugin-styles 编译识别会失败！
+ */
+// 修改此链接的时候请同时修改 ./icon.storyies.js 中的 cssUrl
+@import url(https://at.alicdn.com/t/font_2517379_blcrwi81yrl.css);
+$pre: '#{$uiPre}icon';
+
+// .#{$pre} {}

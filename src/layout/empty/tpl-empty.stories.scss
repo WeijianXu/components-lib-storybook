@@ -1,0 +1,30 @@
+@import '@/theme/variants';
+
+/* 改变 storybook 的默认样式 */
+#root,
+html,
+body {
+  height: 100%;
+}
+
+.sb-show-main.sb-main-padded {
+  padding: 0;
+}
+/* @end */
+
+$pre: 'story-tpl-empty';
+.#{$pre}-page .sz-tpl-empty-page {
+  @include flexCol(center, center);
+}
+
+.#{$pre}-page {
+  background-position: 5rem 5rem;
+}
+.#{$pre}-footer {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: $font-size-sm;
+}
+.#{$pre}-copyright {
+  margin: auto 4px;
+}
