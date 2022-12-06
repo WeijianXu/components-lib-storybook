@@ -1,12 +1,12 @@
 {
   "name": "components-lib-storybook",
   "version": "0.1.0",
-  "description": "A UI components Libray for Gov. pc end with Vue.js",
+  "description": "A UI components Libray with Vue2",
   "main": "dist/components-lib-storybook.cjs.js",
   "module": "dist/es/index.js",
   "unpkg": "dist/components-lib-storybook.min.js",
   "repository": "https://github.com/WeijianXu/components-lib-storybook.git",
-  "author": "xuwj",
+  "author": "WeijianXu",
   "license": "MIT",
   "typings": "types/index.d.ts",
   "files": [
